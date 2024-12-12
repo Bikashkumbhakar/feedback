@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disney Feedback Portal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-image: url('back.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+    }
+    .container {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      color: #fff;
+      background-color: #FF4500;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #ff6347;
+    }
+    .thank-you {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .thank-you img {
+      max-width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Disney Feedback Portal</h1>
+    <p>We value your feedback! Click the button below to share your thoughts.</p>
+    <button id="feedbackButton">Give Feedback</button>
+  </div>
+  <div class="thank-you" id="thankYouMessage">
+    <h2>Thank You for Submitting Your Feedback!</h2>
+    <img src="https://path-to-disney-character.jpg" alt="Thank You Image">
+  </div>
+
+  <script>
+    document.getElementById('feedbackButton').addEventListener('click', () => {
+      // Redirect to Google Form
+      window.location.href = 'https://forms.gle/bWcdkAVgX32wtKk29';
+    });
+
+    // Simulate thank-you message after form submission
+    window.addEventListener('load', () => {
+      // Simulate a thank-you after submission (mock example for demonstration)
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('submitted')) {
+        const container = document.querySelector('.container');
+        container.style.display = 'none'; // Hide the main container
+
+        const thankYouMessage = document.getElementById('thankYouMessage');
+        setTimeout(() => {
+          thankYouMessage.style.display = 'block'; // Show thank-you message
+        }, 3000); // 3-second delay
+      }
+    });
+  </script>
+</body>
+</html>
